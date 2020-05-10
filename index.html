@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Todo App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+		
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="css/nouislider.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body> 
+		
+<div class="main-section">
+
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Todo App.</a>
+	      
+	      
+		  </div>
+	  </nav>
+    <!-- END nav -->
+
+  	<section class="hero-wrap js-fullheight">
+  		<div class="container">
+  			<div class="row description js-fullheight align-items-center justify-content-center">
+  				<div class="col-md-8 text-center">
+  					<div class="text">
+  						<h1>Todo List App</h1>
+  						<h4 class="mb-5">Add,update and delete your todos </h4>
+  						
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+		
+		<section class="ftco-section ftco-section-2 bg-light" id="cards">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						Todos
+					</div>
+				</div>
+				<div class="row new" id="new">
+					
+					
+				
+				</div>
+			</div>
+
+	  </section>
+	  <section class="ftco-section ftco-section-2 bg-light" id="cards">
+			<div class="container">
+			
+				<div class="row">
+					
+					
+					<div class="col-md-4">
+						<h2 class="heading-section mb-4 pb-md-3">
+							
+						</h2>
+						<div class="card">
+						  
+						  <div class="card-body">
+						   
+						   
+						    <a href="#" class="btn btn-primary newtodo">Add new todo</a>
+						  </div>
+						  
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	  </section>
+	  <!-- - - - - -end- - - - -  -->
+
+	  <footer class="ftco-section ftco-section-2">
+	  	<div class="col-md-12 text-center">
+          <p class="mb-0">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>
+              document.write(new Date().getFullYear());
+
+            </script> All rights reserved | Developed with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://devferanmi.netlify.com" target="_blank">Devferanmi</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+	  </footer>
+
+  </div>
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/moment-with-locales.min.js"></script>
+  <script src="js/bootstrap-datetimepicker.min.js"></script>
+  <script src="js/main.js"></script>
+    <script  src="js/sw2.js"></script>
+    <script type="text/javascript">
+    		var todotitle,desc;
+    	$(".newtodo").click(function(){
+    		Swal.fire({
+    			icon:'question',
+    			text:"Enter Todo Title",
+    			input:'text',
+    			inputAttributes:{
+    				required:true,
+    				placeholder:"Todo Title",
+    				validationMessage:'Enter a title to continue',
+    			},
+    			showCancelButton:false,
+    			confirmButtonText:'Next',
+    			showCloseButton:true,
+    			validationMessage:'Enter a title to continue',
+    		})
+    		.then((result)=>{
+    			var title = result.value;
+    			todotitle = title;
+    			if(title!==""){
+    				Swal.fire({
+    			icon:'question',
+    			text:"Enter Descrtipion of your todo",
+    			input:'text',
+    			inputAttributes:{
+    				
+    				placeholder:"Todo Descrtipion",
+    			},
+    			showCancelButton:false,
+    			confirmButtonText:'Next',
+    			showCloseButton:true,
+    			footer:'A description is not compulsory',
+
+    		})
+    				.then((res)=>{
+    					var d = res.value;
+    					desc = d;
+    					save();
+    				})
+    			}
+    		})
+    	})
+    	function save(){
+    		if(todotitle==""){
+
+    		}
+    		else {
+    		var saved = localStorage.todosapp;
+    		if(saved==undefined){
+    			localStorage.setItem("todosapp","");
+    		}
+    		var ns = localStorage.todosapp;
+    		if(ns==""){
+    			var arr = [];
+    		}
+    		else {
+    			var arr = ns.split("~");
+    		}
+    		const n = todotitle+"%"+desc;
+    		arr.push(n);
+    		var a = arr.join("~");
+    		localStorage.setItem("todosapp",a);
+    		start();
+    	}
+    }
+    	var saved = localStorage.todosapp;
+    		if(saved==undefined){
+    			localStorage.setItem("todosapp","");
+    		}
+    		start();
+    function start(){
+    	document.getElementById("new").innerHTML='';
+    	var s = localStorage.todosapp;
+    	if(s!=="")	{
+    			var arr = s.split("~");
+    			arr.forEach((todo,index)=>{
+    				if(todo!=""){
+    				var todoarr = todo.split("%");
+    				var add = `<div class="col-md-4">
+						<h2 class="heading-section mb-4 pb-md-3">
+							
+						</h2>
+						<div class="card">
+						  
+						  <div class="card-body">
+						    <h5 class="card-title">${todoarr[0]}</h5>
+						    <p class="card-text">${todoarr[1]}</p>
+						   
+						  </div>
+						  <div class="card-footer text-muted">
+						    <button class="btn btn-primary editodo" todoid="${index}">Edit</button>
+						    <button class="btn btn-danger deletetodo" todoid="${index}">Delete</button>
+						  </div>
+						</div>
+					</div>`;
+					$(".new").append(add);
+					  $(".editodo").click(function(){
+    	var id = $(this).attr("todoid");
+
+    	if(id!==""){
+    		var s = localStorage.todosapp;
+    		var t,d;
+    			if(s!=="")	{
+    			var arr = s.split("~");
+    			var todo = arr[id];
+    			var todoarr = todo.split("%");
+    			var todotitlee = todoarr[0];
+    			var tododesc = todoarr[1];
+    			console.log(todotitlee,tododesc);
+    		Swal.fire({
+    			icon:'question',
+    			text:"Enter Todo Title",
+    			input:'text',
+    			inputAttributes:{
+    				required:true,
+    				placeholder:todotitlee,
+    				
+    			},
+    			validationMessage:'Enter a title to continue',
+    			showCancelButton:false,
+    			confirmButtonText:'Next',
+    			showCloseButton:true,
+    			validationMessage:'Enter a title to continue',
+    		})
+    		.then((result)=>{
+    			var title = result.value;
+    			t = title;
+    			if(title!==""){
+    				Swal.fire({
+    			icon:'question',
+    			text:"Enter Descrtipion of your todo",
+    			input:'text',
+    			inputAttributes:{
+    				placeholder:tododesc,
+    				
+    			},
+    			showCancelButton:false,
+    			confirmButtonText:'Next',
+    			showCloseButton:true,
+    			footer:'A description is not compulsory',
+
+    		})
+    				.then((res)=>{
+    					d = res.value;
+    					const n = t+"%"+d;
+    				//arr.push(n);
+    					arr[id] = n;
+    				var a = arr.join("~");
+    				localStorage.setItem("todosapp",a);
+    		start();
+    				});
+    	}
+
+    })
+    	}
+    }
+    });
+    $(".deletetodo").click(function(){
+    	var todoid = $(this).attr("todoid");
+    	var s = localStorage.todosapp;
+    	var arr = s.split("~");
+    	 arr[todoid] = "";
+    	var a = arr.join("~");
+    	localStorage.setItem("todosapp",a);
+    	start();
+    	//console.log(arr);
+    })
+				}
+    			})	
+    	}
+    }
+    $(".editodo").click(function(){
+    	var id = $(this).attr("todoid");
+
+    	if(id!==""){
+    		var s = localStorage.todosapp;
+    		var t,d;
+    			if(s!=="")	{
+    			var arr = s.split("~");
+    			var todo = arr[id];
+    			var todoarr = todo.split("%");
+    			var todotitlee = todoarr[0];
+    			var tododesc = todoarr[1];
+    			console.log(todotitlee,tododesc);
+    		Swal.fire({
+    			icon:'question',
+    			text:"Enter Todo Title",
+    			input:'text',
+    			inputAttributes:{
+    				required:true,
+    				placeholder:todotitlee,
+    				
+    			},
+    			showCancelButton:false,
+    			confirmButtonText:'Next',
+    			showCloseButton:true,
+
+    		})
+    		.then((result)=>{
+    			var title = result.value;
+    			t = title;
+    			if(title!==""){
+    				Swal.fire({
+    			icon:'question',
+    			text:"Enter Descrtipion of your todo",
+    			input:'text',
+    			inputAttributes:{
+    				placeholder:tododesc,
+    				
+    			},
+    			showCancelButton:false,
+    			confirmButtonText:'Next',
+    			showCloseButton:true,
+    			footer:'A description is not compulsory',
+
+    		})
+    				.then((res)=>{
+    					d = res.value;
+    					const n = t+"%"+d;
+    				//arr.push(n);
+    					arr[id] = n;
+    				var a = arr.join("~");
+    				localStorage.setItem("todosapp",a);
+    		start();
+    				});
+    	}
+
+    })
+    	}
+    }
+    });
+    $(".deletetodo").click(function(){
+    	var todoid = $(this).attr("todoid");
+    	var s = localStorage.todosapp;
+    	var arr = s.split("~");
+    	 arr[todoid] = "";
+    	var a = arr.join("~");
+    	localStorage.setItem("todosapp",a);
+    	start();
+    	//console.log(arr);
+    })
+    </script>
+  </body>
+</html>
